@@ -101,5 +101,19 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	public List<Employe> getAllEmployeByMission(int missionId) {
 		return timesheetRepository.getAllEmployeByMission(missionId);
 	}
+	public void deleteMissionById(int missionId)
+	{
+		Mission mission = missionRepository.findById(missionId).get();
+		missionRepository.delete(mission);
+	}
+	public Mission getMissionById(int  missionId) {
+		return missionRepository.findById(missionId).get();	
+	}
+	public void mettreAjourDescriptionByMissionId(String description, int missionId) {
+		Mission mission = missionRepository.findById(missionId).get();
+		mission.setDescription(description);
+		missionRepository.save(mission);
+
+	}
 
 }

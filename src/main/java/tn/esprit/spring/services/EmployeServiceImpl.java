@@ -42,6 +42,10 @@ public class EmployeServiceImpl implements IEmployeService {
 		employeRepository.save(employe);
 
 	}
+	public Employe ajouterEmployee(Employe employe) {
+		return 	employeRepository.save(employe);
+		
+		}
 
 	@Transactional	
 	public void affecterEmployeADepartement(int employeId, int depId) {
@@ -148,6 +152,11 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public List<Employe> getAllEmployes() {
 				return (List<Employe>) employeRepository.findAll();
+	}
+	
+	public int ajouterDepartement(Departement dep) {
+		deptRepoistory.save(dep);
+		return dep.getId();
 	}
 
 }
