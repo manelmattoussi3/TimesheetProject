@@ -34,6 +34,14 @@ public class Contrat implements Serializable {
 		super();
 	}
 	
+	public Contrat(int reference, Date dateDebut, String typeContrat, float salaire) {
+		super();
+		this.reference = reference;
+		this.dateDebut = dateDebut;
+		this.typeContrat = typeContrat;
+		this.salaire = salaire;
+	}
+
 	public Contrat(Date dateDebut, String typeContrat, float salaire) {
 		this.dateDebut = dateDebut;
 		this.typeContrat = typeContrat;
@@ -62,14 +70,27 @@ public class Contrat implements Serializable {
 	}
 
 	public void setTypeContrat(String typeContrat) {
+		if (typeContrat == null) {
+            throw new IllegalArgumentException("Type_Contrat cannot be blank");
+        } else {
+            if (typeContrat.length() < 2) {
+                throw new IllegalArgumentException("Type_Contrat is too short");
+            } else if (typeContrat.length() > 30) {
+                throw new IllegalArgumentException("Type_Contrat is too long");
+            }
+        }
+         
 		this.typeContrat = typeContrat;
-	}
+    }
+		
+	
 
 	public float getSalaire() {
 		return salaire;
 	}
 
 	public void setSalaire(float salaire) {
+		
 		this.salaire = salaire;
 	}
 

@@ -42,6 +42,10 @@ public class EmployeServiceImpl implements IEmployeService {
 		employeRepository.save(employe);
 
 	}
+	public Employe ajouterEmployee(Employe employe) {
+		return 	employeRepository.save(employe);
+		
+		}
 
 	@Transactional	
 	public void affecterEmployeADepartement(int employeId, int depId) {

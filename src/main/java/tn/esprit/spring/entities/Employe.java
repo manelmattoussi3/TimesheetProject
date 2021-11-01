@@ -1,9 +1,10 @@
 package tn.esprit.spring.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,11 +15,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+
 
 
 @Entity
@@ -34,28 +37,29 @@ public class Employe implements Serializable {
 	
 	private String nom;
 	
-	//@Column(unique=true)
+	
 	private String email;
 
 	private boolean isActif;
-	
+	@Temporal(TemporalType.DATE)
+	private Date dateembauche;
 	@Enumerated(EnumType.STRING)
-	//@NotNull
+	
 	private Role role;
 	
-	//@JsonBackReference  
+	 
 	@JsonIgnore
 	@ManyToMany(mappedBy="employes",fetch=FetchType.EAGER )
-	//@NotNull
+	
 	private List<Departement> departements;
 	
 	@JsonIgnore
-	//@JsonBackReference
+	
 	@OneToOne(mappedBy="employe")
 	private Contrat contrat;
 	
 	@JsonIgnore
-	//@JsonBackReference
+	
 	@OneToMany(mappedBy="employe")
 	private List<Timesheet> timesheets;
 	
@@ -143,6 +147,46 @@ public class Employe implements Serializable {
 	public void setTimesheets(List<Timesheet> timesheets) {
 		this.timesheets = timesheets;
 	}
+	
+
+	public Date getDateembauche() {
+		return dateembauche;
+	}
+
+	public void setDateembauche(Date dateembauche) {
+		this.dateembauche = dateembauche;
+	}
+	
+
+	public Employe(String prenom, String nom, String email, boolean isActif, Date dateembauche, Role role) {
+		super();
+		this.prenom = prenom;
+		this.nom = nom;
+		this.email = email;
+		this.isActif = isActif;
+		this.dateembauche = dateembauche;
+		this.role = role;
+	}
+
+	public Employe(int id, String prenom, String nom, String email, boolean isActif, Date dateembauche, Role role) {
+		super();
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.email = email;
+		this.isActif = isActif;
+		this.dateembauche = dateembauche;
+		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "Employe [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", isActif=" + isActif
+				+ ", role=" + role + ", departements=" + departements + ", contrat=" + contrat + ", timesheets="
+				+ timesheets + "]";
+	}
+	
+	
 	
 	
 	
