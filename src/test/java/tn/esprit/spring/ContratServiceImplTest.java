@@ -39,8 +39,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-
-
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -61,6 +60,7 @@ public class ContratServiceImplTest {
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 	@BeforeClass
+	
 	public static void before() {
 		l.info("the tests are starting");
 	}
@@ -143,7 +143,7 @@ public class ContratServiceImplTest {
 		}
 
 	}
-	@Before
+	//@Before
 	@Test
 	@Order(5)
 	public void testGetAllContrat()  {		
@@ -187,21 +187,24 @@ public class ContratServiceImplTest {
 	@Rollback(false)
 	@Order(7)
 	public void testDeleteContratbyid() {
+		
 		Integer id=98;
+		boolean notExistAfterDelete =repository.findById(id).isPresent();
 		boolean isExistBeforeDelete =repository.findById(id).isPresent();
 		if(isExistBeforeDelete) {
 			repository.deleteById(id);
 			assertTrue(isExistBeforeDelete);
 			l.info("le contrat est supprimé ");}
 
-		boolean notExistAfterDelete =repository.findById(id).isEmpty();
-		if(notExistAfterDelete) {
-			assertTrue(notExistAfterDelete);
+		
+		else {
+			assertFalse(notExistAfterDelete);
 			l.info("le contrat est introuvable ");}
 	}
 
 
 	@AfterClass
+	
 	public static void after() {
 		l.info("the tests are finished");
 	}
