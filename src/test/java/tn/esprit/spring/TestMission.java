@@ -56,12 +56,12 @@ public class TestMission {
       }
 		
 		
-      //  @Test
-        //public void TestfindAllMissionByEmployeJPQL() {
+        @Test
+        public void TestfindAllMissionByEmployeJPQL() {
 
-	      //  assertThat(timesheetService.findAllMissionByEmployeJPQL(1).size()).isGreaterThan(0);
+	       assertThat(timesheetService.findAllMissionByEmployeJPQL(1).size()).isGreaterThan(0);
 
-        //}
+       }
 		
 
         @Test
