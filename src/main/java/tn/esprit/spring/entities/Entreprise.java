@@ -39,48 +39,6 @@ public class Entreprise implements Serializable{
 		super();
 	}
 
-	public Entreprise(String name, String raisonSocial) {
-		this.name = name;
-		this.raisonSocial = raisonSocial;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getRaisonSocial() {
-		return raisonSocial;
-	}
-
-	public void setRaisonSocial(String raisonSocial) {
-		this.raisonSocial = raisonSocial;
-	}
-
-	public List<Departement> getDepartements() {
-		return departements;
-	}
-
-	public void setDepartements(List<Departement> departements) {
-		this.departements = departements;
-	}
-	
-	
-	public void addDepartement(Departement departement){
-		departement.setEntreprise(this);
-		this.departements.add(departement);
-	}
 
 
 

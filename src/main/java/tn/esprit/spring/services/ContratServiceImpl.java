@@ -31,22 +31,14 @@ public class ContratServiceImpl implements IContratService{
 		contratRepoistory.save(contratManagedEntity);
 		
 	}
-	@Override
-	public void deleteContrat(Contrat contrat) {
-		
-		contratRepoistory.delete(contrat);
 
-	}
 	@Override
 	public void deleteContratbyid(int idc) {
 		Contrat c = contratRepoistory.findById(idc).get();
 		contratRepoistory.delete(c);
 
 	}
-	@Override
-	public void deleteAllContratJPQL() {
-        employeRepository.deleteAllContratJPQL();
-	}
+	
 	@Override
 	public List<Contrat> getAllContrat() {
 
