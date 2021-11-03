@@ -110,6 +110,9 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
 		return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
 	}
+	public List<Mission> findAllMission() {
+		return (List<Mission>) missionRepository.findAll();
+	}
 
 	
 	public List<Employe> getAllEmployeByMission(int missionId) {

@@ -4,6 +4,7 @@ package tn.esprit.spring;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
@@ -57,9 +58,11 @@ public class TestMission {
 		
 		
         @Test
-        public void TestfindAllMissionByEmployeJPQL() {
+        public void TestfindAllMission() {
 
-	       assertThat(timesheetService.findAllMissionByEmployeJPQL(1).size()).isGreaterThan(0);
+         List<Mission> liste  = timesheetService.findAllMission();
+          
+	     assertThat(liste.size()).isGreaterThan(0);
 
        }
 		

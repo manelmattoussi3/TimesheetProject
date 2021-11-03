@@ -20,5 +20,6 @@ public interface ITimesheetService {
 	public void deleteMissionById(int missionId);
 	public Mission getMissionById(int  missionId);
 	public void mettreAjourDescriptionByMissionId(String description, int missionId);
+	 public  List<Mission> findAllMission();
 	
 }
