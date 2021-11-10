@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EntrepriseServiceTests {
+public class EntrepriseServiceTest {
 	
 	@Autowired
 	IEntrepriseService service;
@@ -32,13 +32,12 @@ public class EntrepriseServiceTests {
 	@Autowired
 	DepartementRepository drep;
 	
-	private static final Logger l = LogManager.getLogger(EntrepriseServiceTests.class);	
+	private static final Logger l = LogManager.getLogger(EntrepriseServiceTest.class);	
 	
 	@Test
 	public void testAjouterEntreprise()
 	{
 		try {
-			Entreprise git=new Entreprise();
 			l.info("In testAjouterEntreprise():");
 			Entreprise e=new Entreprise("testAjout", "testAjout");
 			ArrayList <Entreprise> liste1 =(ArrayList<Entreprise>) rep.findAll();
