@@ -83,6 +83,9 @@ public class Entreprise implements Serializable{
 	}
 
 
-
+	public void removeDepartement(Departement departement){
+		departement.setEntreprise(null);
+		this.departements.remove(departement);
+	}
 
 }
