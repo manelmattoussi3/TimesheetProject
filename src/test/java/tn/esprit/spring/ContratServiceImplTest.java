@@ -116,11 +116,11 @@ public class ContratServiceImplTest {
 	@Test
 	@Order(4)
 	public void testGetContrat() {
-		Contrat c = service.getContrat(4);
+		Contrat c = service.getContrat(16);
 
 
-		if(c.getReference()== 4) {
-			assertNotNull( service.getContrat(4));
+		if(c.getReference()== 16) {
+			assertNotNull( service.getContrat(16));
 
 			l.info("le contart est:"+c.toString());
 		}
@@ -150,7 +150,7 @@ public class ContratServiceImplTest {
 	@Order(6)
 	public void testUpdateContrat() throws ParseException{
 
-		Integer id =9;
+		Integer id =121;
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = dateFormat.parse("2021-10-19");

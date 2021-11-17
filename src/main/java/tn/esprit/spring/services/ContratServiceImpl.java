@@ -16,6 +16,7 @@ public class ContratServiceImpl implements IContratService{
 	ContratRepository contratRepoistory;
 	@Autowired
 	EmployeRepository employeRepository;
+	
 	@Override
 	public Contrat ajouterContrat(Contrat contrat) {
 		
